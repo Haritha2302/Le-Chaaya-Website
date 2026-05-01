@@ -6,7 +6,7 @@
       "category": "drinks",
       "badge": "Signature",
       "badgeStyle": "sig",
-      "description": "Milk tea brewed to a fixed ratio. Strong and consistent, every cup.",
+      "description": "Milk tea brewed in a samovar to a fixed ratio. Strong and consistent, every cup.",
       "variants": ["Hot", "With sugar", "Without sugar"],
       "addons": []
     },
