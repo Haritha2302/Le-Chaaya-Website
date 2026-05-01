@@ -7,7 +7,7 @@
       "badge": "Signature",
       "badgeStyle": "sig",
       "description": "Milk tea brewed in a samovar to a fixed ratio. Strong and consistent, every cup.",
-      "variants": ["Hot", "With sugar", "Without sugar"],
+      "variants": ["Hot", "With milk", "Sugar optional"],
       "addons": []
     },
     {
@@ -17,7 +17,7 @@
       "badge": "Signature",
       "badgeStyle": "sig",
       "description": "Black tea, no milk. Same decoction, diluted with hot water. No frills, nothing added.",
-      "variants": ["Hot", "No milk", "With sugar", "Without sugar"],
+      "variants": ["Hot", "No milk", "Sugar optional"],
       "addons": []
     },
     {
@@ -27,7 +27,17 @@
       "badge": "Cold",
       "badgeStyle": "sig",
       "description": "Fresh lime with water or soda. If tea isn't your thing, this is.",
-      "variants": ["Water", "Soda", "Ice optional"],
+      "variants": ["Water or soda", "Ice optional"],
+      "addons": []
+    },
+    {
+      "id": "rusk",
+      "name": "Rusk",
+      "category": "bites",
+      "badge": "Pairing",
+      "badgeStyle": "pair",
+      "description": "Kerala bakery rusk. Sourced fresh, stored airtight, never served soft. Pair it with your Chaaya.",
+      "variants": ["Solo", "Chaaya + Rusk combo"],
       "addons": []
     },
     {
@@ -54,20 +64,10 @@
       "id": "kadala",
       "name": "Le Kadala",
       "category": "bites",
-      "badge": "Fresh Daily",
-      "badgeStyle": "fresh",
+      "badge": "Bite",
+      "badgeStyle": "bite",
       "description": "Sprouted black chickpea or green gram, tempered with mustard, curry leaves, and spices. Warm. Rotates daily. Until it runs out.",
       "variants": ["Kadala or green gram"],
-      "addons": []
-    },
-    {
-      "id": "rusk",
-      "name": "Rusk",
-      "category": "bites",
-      "badge": "Pairing",
-      "badgeStyle": "pair",
-      "description": "Kerala bakery rusk. Sourced fresh, stored airtight, never served soft. Pair it with your Chaaya.",
-      "variants": ["Solo", "Chaaya + Rusk combo"],
       "addons": []
     }
   ]
