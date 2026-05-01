@@ -110,18 +110,11 @@ nav {
   padding: 80px 2rem 4rem;
 }
 
-.hero-bg-pattern {
-  position: absolute;
-  inset: 0;
-  opacity: 0.04;
-  background-image: repeating-linear-gradient(45deg, var(--gold) 0px, var(--gold) 1px, transparent 1px, transparent 40px);
-}
-
 .hero-content {
   text-align: center;
   position: relative;
   z-index: 2;
-  max-width: 700px;
+  max-width: 860px;
 }
 
 .hero-logo-wrap {
@@ -159,13 +152,18 @@ nav {
 
 .hero-tagline {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(28px, 5vw, 46px);
+  font-size: clamp(20px, 4vw, 42px);
   font-weight: 700;
   line-height: 1.2;
-  color: var(--gold-light);
+  color: #fff;
   margin-bottom: 1.8rem;
   letter-spacing: 0.01em;
   transition: opacity 0.5s ease;
+  width: 100%;
+  max-width: 800px;
+  padding: 0 1rem;
+  text-align: center;
+  white-space: nowrap;
 }
 
 .hero-about {
@@ -339,13 +337,6 @@ section { padding: 6rem 2rem; }
 
 /* MENU */
 .menu-section { background: var(--green); position: relative; overflow: hidden; }
-
-.menu-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: repeating-linear-gradient(0deg, rgba(212,175,55,0.03) 0px, rgba(212,175,55,0.03) 1px, transparent 1px, transparent 60px);
-}
 
 .menu-section .section-title { color: #fff; }
 .menu-section .section-label { color: var(--gold); }
@@ -594,12 +585,11 @@ footer { background: var(--green-dark); padding: 3rem 2rem; }
 </nav>
 
 <section class="hero" id="home">
-  <div class="hero-bg-pattern"></div>
   <div class="hero-content">
     <div class="hero-logo-wrap">
       <img src="https://res.cloudinary.com/doskjg9ls/image/upload/Le_Chaaya_Logo_No_Background_kixkma.png" alt="Le Chaaya" class="hero-logo">
     </div>
-    <div class="hero-tag">Kochi · Kerala · Est. 2026</div>
+    <div class="hero-tag">Est. 2026</div>
     <h1 class="hero-tagline" id="hero-tagline"></h1>
     <div class="hero-about">
       <span class="hero-about-note">Placeholder — about Le Chaaya (2-3 lines, human, no marketing)</span>
