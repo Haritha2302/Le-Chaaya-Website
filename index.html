@@ -781,7 +781,7 @@ function init() {
 
 // ─── TAGLINE CYCLE ────────────────────────────────────────────────────────────
 function initTagline() {
-  const cycleOrder = ['ml', 'ta', 'hi', 'en'];
+  const cycleOrder = Object.keys(TRANSLATIONS.tagline);
   const browserLang = (navigator.language || 'ml').split('-')[0].toLowerCase();
   let cycleIndex = cycleOrder.includes(browserLang) ? cycleOrder.indexOf(browserLang) : 0;
 
