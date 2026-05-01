@@ -1,0 +1,24 @@
+{
+  "list": [
+    {
+      "id": 1,
+      "title": "Outlet Crew",
+      "location": "Layam Road, Tripunithura",
+      "level": "Experienced",
+      "open": false
+    },
+    {
+      "id": 2,
+      "title": "Outlet Crew",
+      "location": "Infopark, Kochi",
+      "level": "Entry level",
+      "open": false
+    }
+  ],
+  "interestOptions": [
+    { "value": "outlet-crew", "label": "Outlet Crew" },
+    { "value": "operations", "label": "Operations" },
+    { "value": "not-sure", "label": "I want to join but not sure what I can do yet" },
+    { "value": "general", "label": "General enquiry" }
+  ]
+}

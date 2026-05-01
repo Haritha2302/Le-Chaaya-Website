@@ -1,0 +1,74 @@
+{
+  "items": [
+    {
+      "id": "chaaya",
+      "name": "Chaaya",
+      "category": "drinks",
+      "badge": "Signature",
+      "badgeStyle": "sig",
+      "description": "Milk tea brewed to a fixed ratio. Strong and consistent, every cup.",
+      "variants": ["Hot", "With sugar", "Without sugar"],
+      "addons": []
+    },
+    {
+      "id": "kattan",
+      "name": "Kattan",
+      "category": "drinks",
+      "badge": "Signature",
+      "badgeStyle": "sig",
+      "description": "Black tea, no milk. Same decoction, diluted with hot water. No frills, nothing added.",
+      "variants": ["Hot", "No milk", "With sugar", "Without sugar"],
+      "addons": []
+    },
+    {
+      "id": "lime",
+      "name": "Lime",
+      "category": "drinks",
+      "badge": "Cold",
+      "badgeStyle": "sig",
+      "description": "Fresh lime with water or soda. If tea isn't your thing, this is.",
+      "variants": ["Water", "Soda", "Ice optional"],
+      "addons": []
+    },
+    {
+      "id": "noodles",
+      "name": "Le Noodles",
+      "category": "bites",
+      "badge": "Bite",
+      "badgeStyle": "bite",
+      "description": "Spiced instant noodles, prepped to a fixed spec. Goes well with a Chaaya.",
+      "variants": ["Standard"],
+      "addons": ["+ Vegetables"]
+    },
+    {
+      "id": "upma",
+      "name": "Le Upma",
+      "category": "bites",
+      "badge": "Bite",
+      "badgeStyle": "bite",
+      "description": "Classic semolina upma from premium premix. Hot and filling.",
+      "variants": ["Hot"],
+      "addons": []
+    },
+    {
+      "id": "kadala",
+      "name": "Le Kadala",
+      "category": "bites",
+      "badge": "Fresh Daily",
+      "badgeStyle": "fresh",
+      "description": "Sprouted black chickpea or green gram, tempered with mustard, curry leaves, and spices. Warm. Rotates daily. Until it runs out.",
+      "variants": ["Kadala or green gram"],
+      "addons": []
+    },
+    {
+      "id": "rusk",
+      "name": "Rusk",
+      "category": "bites",
+      "badge": "Pairing",
+      "badgeStyle": "pair",
+      "description": "Kerala bakery rusk. Sourced fresh, stored airtight, never served soft. Pair it with your Chaaya.",
+      "variants": ["Solo", "Chaaya + Rusk combo"],
+      "addons": []
+    }
+  ]
+}
