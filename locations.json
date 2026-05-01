@@ -1,0 +1,37 @@
+{
+  "outlets": [
+    {
+      "id": 1,
+      "number": "01",
+      "city": "Kochi, Kerala",
+      "subtitle": "Flagship outlet",
+      "status": "live",
+      "statusLabel": "Now Open",
+      "address": "PLACEHOLDER — Address to be confirmed",
+      "hours": "PLACEHOLDER — Opening hours to be confirmed",
+      "mapsUrl": ""
+    },
+    {
+      "id": 2,
+      "number": "02",
+      "city": "Kerala",
+      "subtitle": "Next outlet",
+      "status": "soon",
+      "statusLabel": "Coming Soon",
+      "address": "PLACEHOLDER — Location being scouted",
+      "hours": "PLACEHOLDER — 2026-2027",
+      "mapsUrl": ""
+    },
+    {
+      "id": 3,
+      "number": "03",
+      "city": "Kerala",
+      "subtitle": "Next outlet",
+      "status": "soon",
+      "statusLabel": "Coming Soon",
+      "address": "PLACEHOLDER — Location being scouted",
+      "hours": "PLACEHOLDER — 2027",
+      "mapsUrl": ""
+    }
+  ]
+}
