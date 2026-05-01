@@ -7,8 +7,8 @@
       "subtitle": "Flagship outlet",
       "status": "live",
       "statusLabel": "Now Open",
-      "address": "PLACEHOLDER — Address to be confirmed",
-      "hours": "PLACEHOLDER — Opening hours to be confirmed",
+      "address": "Address TBC",
+      "hours": "Hours TBC",
       "mapsUrl": ""
     },
     {
@@ -18,8 +18,8 @@
       "subtitle": "Next outlet",
       "status": "soon",
       "statusLabel": "Coming Soon",
-      "address": "PLACEHOLDER — Location being scouted",
-      "hours": "PLACEHOLDER — 2026-2027",
+      "address": "Location being scouted",
+      "hours": "2026-2027",
       "mapsUrl": ""
     },
     {
@@ -29,8 +29,8 @@
       "subtitle": "Next outlet",
       "status": "soon",
       "statusLabel": "Coming Soon",
-      "address": "PLACEHOLDER — Location being scouted",
-      "hours": "PLACEHOLDER — 2027",
+      "address": "Location being scouted",
+      "hours": "2027",
       "mapsUrl": ""
     }
   ]
