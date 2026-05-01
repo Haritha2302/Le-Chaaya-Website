@@ -451,7 +451,7 @@ section { padding: 6rem 2rem; }
   margin-top: 3rem;
 }
 
-.outlet-card { border: 1px solid rgba(11,61,51,0.12); border-radius: 12px; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; }
+.outlet-card { border: 1px solid rgba(11,61,51,0.12); border-radius: 12px; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; background: var(--cream); }
 .outlet-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(11,61,51,0.1); }
 
 .outlet-card-top { background: var(--green); padding: 1.5rem; display: flex; align-items: center; gap: 1rem; }
@@ -613,7 +613,7 @@ footer { background: var(--green-dark); padding: 3rem 2rem; }
         <p class="section-label reveal">The Concept</p>
         <h2 class="section-title reveal">The best chai you've had came from a roadside stall. We built a system around it.</h2>
         <div class="gold-divider reveal"></div>
-        <p class="section-desc reveal">Limited menu. Fixed ratios. Real ingredients. No shortcuts on the tea. Le Chaaya is a specialty tea concept built on one idea: the same cup, made the same way, every time.</p>
+        <p class="section-desc reveal">Limited menu. Fixed ratios. Real ingredients. Le Chaaya is built on one idea: traditional samovar tea, made the same way, every time.</p>
         <div class="about-pillars reveal">
           <div class="pillar">
             <div class="pillar-icon">☕</div>
@@ -633,7 +633,7 @@ footer { background: var(--green-dark); padding: 3rem 2rem; }
           <div class="pillar">
             <div class="pillar-icon">🌿</div>
             <h4>Real ingredients</h4>
-            <p>Traditional methods. Nothing ultra-processed.</p>
+            <p>Traditional methods. Honest food.</p>
           </div>
         </div>
       </div>
@@ -707,7 +707,7 @@ footer { background: var(--green-dark); padding: 3rem 2rem; }
             </div>
             <div class="form-group">
               <label>Tell us a bit</label>
-              <textarea name="message" placeholder="Where are you based? Any relevant experience? Keep it short."></textarea>
+              <textarea name="message" placeholder="Where are you based? Any relevant experience?"></textarea>
             </div>
             <button type="submit" class="form-submit" id="submitBtn">Send</button>
             <p class="form-note">We'll get back to you on WhatsApp or email.</p>
@@ -778,7 +778,7 @@ function initTagline() {
   const taglineEl = document.getElementById('hero-tagline');
   taglineEl.textContent = TRANSLATIONS.tagline[cycleOrder[cycleIndex]];
 
-  document.getElementById('footer-tagline').textContent = TRANSLATIONS.tagline.ml;
+  document.getElementById('footer-tagline').textContent = TRANSLATIONS.tagline.en;
 
   setInterval(() => {
     taglineEl.style.opacity = '0';
