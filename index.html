@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Le Chaaya</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green: #0B3D33;
+  --green-light: #0f4f42;
+  --green-dark: #071f1a;
+  --gold: #D4AF37;
+  --gold-dark: #9A7B2C;
+  --gold-light: #F1D592;
+  --cream: #FAF6ED;
+  --cream-dark: #F0E8D0;
+  --text-dark: #1a1a1a;
+  --text-muted: #5a5a5a;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(11,61,51,0.97);
+  backdrop-filter: blur(8px);
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  border-bottom: 1px solid rgba(212,175,55,0.2);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.nav-logo img { width: 36px; height: 36px; object-fit: contain; }
+
+.nav-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: rgba(241,213,146,0.8);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--gold-light); }
+
+.nav-insta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(241,213,146,0.6) !important;
+  font-size: 12px !important;
+  letter-spacing: 0.05em !important;
+}
+
+.nav-insta svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 1.5; }
+
+.nav-cta {
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light));
+  color: var(--green-dark) !important;
+  padding: 8px 18px;
+  border-radius: 4px;
+  font-weight: 600 !important;
+}
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  background: var(--green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 80px 2rem 4rem;
+}
+
+.hero-bg-pattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  background-image: repeating-linear-gradient(45deg, var(--gold) 0px, var(--gold) 1px, transparent 1px, transparent 40px);
+}
+
+.hero-content {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+}
+
+.hero-logo-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+
+.hero-logo {
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+  animation: floatBadge 4s ease-in-out infinite;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3));
+}
+
+@keyframes floatBadge {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.hero-tag {
+  display: inline-block;
+  background: rgba(212,175,55,0.12);
+  border: 1px solid rgba(212,175,55,0.3);
+  color: var(--gold-light);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 2px;
+  margin-bottom: 1.8rem;
+}
+
+.hero-tagline {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 5vw, 46px);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--gold-light);
+  margin-bottom: 1.8rem;
+  letter-spacing: 0.01em;
+  transition: opacity 0.5s ease;
+}
+
+.hero-about {
+  font-size: clamp(15px, 2vw, 17px);
+  color: rgba(255,255,255,0.55);
+  line-height: 1.75;
+  max-width: 520px;
+  margin: 0 auto 2.5rem;
+  font-style: italic;
+  border: 1px dashed rgba(212,175,55,0.25);
+  padding: 1rem 1.5rem;
+  border-radius: 4px;
+}
+
+.hero-about-note {
+  font-size: 10px;
+  color: rgba(212,175,55,0.3);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 6px;
+  font-style: normal;
+}
+
+.hero-cta-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light));
+  color: var(--green-dark);
+  padding: 14px 32px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(212,175,55,0.3);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--gold-light);
+  padding: 14px 32px;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  border: 1px solid rgba(212,175,55,0.4);
+  transition: all 0.2s;
+  display: inline-block;
+}
+
+.btn-ghost:hover {
+  background: rgba(212,175,55,0.1);
+  border-color: rgba(212,175,55,0.7);
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: rgba(212,175,55,0.35);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  animation: bounce 2.5s ease-in-out infinite;
+}
+
+.hero-scroll svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 1.5; }
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(7px); }
+}
+
+/* SECTIONS */
+section { padding: 6rem 2rem; }
+
+.section-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(30px, 4.5vw, 48px);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--green);
+  margin-bottom: 1rem;
+}
+
+.section-desc {
+  font-size: 16px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 520px;
+}
+
+.container { max-width: 1100px; margin: 0 auto; }
+
+.gold-divider {
+  width: 48px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold-dark), var(--gold));
+  margin: 1.5rem 0;
+}
+
+/* ABOUT */
+.about-section { background: var(--cream); }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.about-visual { display: flex; justify-content: center; }
+
+.about-logo-large {
+  width: 260px;
+  height: 260px;
+  object-fit: contain;
+  transition: transform 0.4s;
+}
+
+.about-logo-large:hover { transform: scale(1.04) rotate(2deg); }
+
+.about-pillars {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.pillar {
+  background: #fff;
+  border: 1px solid rgba(11,61,51,0.1);
+  border-radius: 8px;
+  padding: 1.25rem;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.pillar:hover { transform: translateY(-3px); border-color: rgba(212,175,55,0.4); }
+.pillar-icon { font-size: 18px; margin-bottom: 0.5rem; }
+.pillar h4 { font-size: 13px; font-weight: 600; color: var(--green); margin-bottom: 4px; }
+.pillar p { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+
+/* MENU */
+.menu-section { background: var(--green); position: relative; overflow: hidden; }
+
+.menu-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(0deg, rgba(212,175,55,0.03) 0px, rgba(212,175,55,0.03) 1px, transparent 1px, transparent 60px);
+}
+
+.menu-section .section-title { color: #fff; }
+.menu-section .section-label { color: var(--gold); }
+.menu-section .gold-divider { background: linear-gradient(90deg, var(--gold), var(--gold-light)); }
+
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.menu-tabs {
+  display: flex;
+  gap: 0.5rem;
+  background: rgba(255,255,255,0.05);
+  padding: 4px;
+  border-radius: 6px;
+  border: 1px solid rgba(212,175,55,0.15);
+}
+
+.menu-tab {
+  padding: 8px 18px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(241,213,146,0.6);
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+  background: transparent;
+  letter-spacing: 0.05em;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.menu-tab.active {
+  background: rgba(212,175,55,0.15);
+  color: var(--gold-light);
+  border: 1px solid rgba(212,175,55,0.3);
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.menu-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(212,175,55,0.15);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold-dark), var(--gold), transparent);
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.menu-card:hover { background: rgba(255,255,255,0.07); border-color: rgba(212,175,55,0.35); transform: translateY(-4px); }
+.menu-card:hover::after { opacity: 1; }
+
+.menu-card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem; }
+
+.menu-card-badge {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 2px;
+}
+
+.badge-sig { background: rgba(212,175,55,0.15); color: var(--gold); border: 1px solid rgba(212,175,55,0.3); }
+.badge-bite { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.5); border: 1px solid rgba(255,255,255,0.12); }
+.badge-fresh { background: rgba(30,200,120,0.1); color: #5de0a0; border: 1px solid rgba(30,200,120,0.2); }
+.badge-pair { background: rgba(212,175,55,0.08); color: rgba(212,175,55,0.7); border: 1px solid rgba(212,175,55,0.15); }
+
+.menu-card h3 { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 0.4rem; line-height: 1.2; }
+.menu-card p { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.6; margin-bottom: 1rem; }
+
+.menu-card-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-top: 1px solid rgba(212,175,55,0.1);
+  padding-top: 1rem;
+}
+
+.menu-variants { display: flex; flex-wrap: wrap; gap: 4px; }
+.variant-tag { font-size: 10px; background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.4); padding: 3px 8px; border-radius: 2px; letter-spacing: 0.05em; }
+
+.menu-note { text-align: center; margin-top: 2.5rem; font-size: 13px; color: rgba(241,213,146,0.4); font-style: italic; }
+
+/* OUTLETS */
+.outlets-section { background: #fff; }
+
+.outlets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.outlet-card { border: 1px solid rgba(11,61,51,0.12); border-radius: 12px; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; }
+.outlet-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(11,61,51,0.1); }
+
+.outlet-card-top { background: var(--green); padding: 1.5rem; display: flex; align-items: center; gap: 1rem; }
+
+.outlet-number {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: rgba(212,175,55,0.15);
+  border: 1px solid rgba(212,175,55,0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 16px; font-weight: 700; color: var(--gold);
+  flex-shrink: 0;
+}
+
+.outlet-card-top h3 { font-family: 'Playfair Display', serif; font-size: 20px; color: #fff; }
+.outlet-card-top p { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 2px; }
+.outlet-card-body { padding: 1.5rem; background: var(--cream); }
+
+.outlet-status { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1rem; }
+.status-dot { width: 7px; height: 7px; border-radius: 50%; }
+.status-live .status-dot { background: #4ade80; animation: pulse 2s infinite; }
+.status-live { color: #16a34a; }
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.status-soon .status-dot { background: var(--gold); }
+.status-soon { color: var(--gold-dark); }
+
+.outlet-detail { font-size: 13px; color: var(--text-muted); margin-bottom: 6px; display: flex; align-items: flex-start; gap: 8px; line-height: 1.5; }
+.outlet-detail-icon { color: var(--green); flex-shrink: 0; margin-top: 1px; }
+
+.outlet-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 1rem; font-size: 13px; font-weight: 500; color: var(--green); text-decoration: none; border-bottom: 1px solid rgba(11,61,51,0.2); padding-bottom: 1px; transition: border-color 0.2s; }
+.outlet-link:hover { border-color: var(--green); }
+
+.outlets-more { text-align: center; margin-top: 2rem; }
+
+.btn-expand { background: transparent; border: 1px solid rgba(11,61,51,0.2); color: var(--green); padding: 10px 28px; border-radius: 4px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.2s; letter-spacing: 0.05em; }
+.btn-expand:hover { background: rgba(11,61,51,0.05); border-color: var(--green); }
+
+/* JOIN */
+.join-section { background: var(--cream-dark); }
+
+.join-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+
+.vacancy-list { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; }
+
+.vacancy-card { background: #fff; border: 1px solid rgba(11,61,51,0.1); border-radius: 10px; padding: 1.1rem 1.4rem; transition: all 0.2s; }
+.vacancy-card:hover { border-color: rgba(212,175,55,0.4); transform: translateX(3px); }
+.vacancy-card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px; }
+.vacancy-card h4 { font-size: 14px; font-weight: 600; color: var(--green); }
+.vacancy-card p { font-size: 12px; color: var(--text-muted); }
+
+.vacancy-badge { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 8px; border-radius: 2px; background: rgba(11,61,51,0.08); color: var(--green); white-space: nowrap; }
+
+.no-openings-notice { background: rgba(212,175,55,0.08); border: 1px solid rgba(212,175,55,0.2); border-radius: 8px; padding: 1.25rem 1.5rem; font-size: 14px; color: var(--gold-dark); line-height: 1.7; margin-top: 1.5rem; }
+
+/* CONTACT FORM */
+.contact-form { background: #fff; border: 1px solid rgba(11,61,51,0.1); border-radius: 16px; padding: 2rem; }
+
+.contact-form h3 { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--green); margin-bottom: 1.5rem; }
+
+.form-group { margin-bottom: 1.1rem; }
+
+.form-group label { display: block; font-size: 11px; font-weight: 500; color: var(--green); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 5px; }
+
+.form-group input, .form-group select, .form-group textarea { width: 100%; padding: 10px 13px; border: 1px solid rgba(11,61,51,0.2); border-radius: 6px; font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--text-dark); background: var(--cream); transition: border-color 0.2s, box-shadow 0.2s; outline: none; appearance: none; }
+
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(11,61,51,0.07); }
+
+.form-group textarea { resize: vertical; min-height: 90px; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+.form-submit { width: 100%; padding: 13px; background: var(--green); color: var(--gold-light); border: none; border-radius: 6px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.05em; cursor: pointer; transition: all 0.2s; margin-top: 0.5rem; }
+.form-submit:hover { background: var(--green-light); transform: translateY(-1px); }
+.form-note { font-size: 11px; color: var(--text-muted); text-align: center; margin-top: 0.75rem; }
+
+/* FOOTER */
+footer { background: var(--green-dark); padding: 3rem 2rem; }
+
+.footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
+
+.footer-brand { display: flex; align-items: center; gap: 12px; }
+.footer-logo { width: 40px; height: 40px; object-fit: contain; }
+.footer-name { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--gold); }
+.footer-tagline { font-size: 12px; color: rgba(241,213,146,0.4); margin-top: 3px; font-style: italic; }
+
+.footer-links { display: flex; gap: 1.5rem; }
+.footer-links a { color: rgba(255,255,255,0.35); text-decoration: none; font-size: 13px; transition: color 0.2s; }
+.footer-links a:hover { color: var(--gold-light); }
+
+.footer-bottom { max-width: 1100px; margin: 2rem auto 0; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.06); text-align: center; font-size: 12px; color: rgba(255,255,255,0.18); }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.revealed { opacity: 1; transform: translateY(0); }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .about-grid, .join-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .about-visual { display: none; }
+  .nav-links { display: none; }
+  .form-row { grid-template-columns: 1fr; }
+  .hero-cta-group { flex-direction: column; align-items: center; }
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+  .menu-tabs { flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="https://res.cloudinary.com/doskjg9ls/image/upload/Le_Chaaya_Logo_No_Background_kixkma.png" alt="Le Chaaya">
+    <span class="nav-name">Le Chaaya</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#outlets">Outlets</a></li>
+    <li><a href="#join">Join Us</a></li>
+    <li><a href="https://instagram.com/lechaaya" target="_blank" class="nav-insta">
+      <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      @lechaaya
+    </a></li>
+    <li><a href="#outlets" class="nav-cta">Find Us</a></li>
+  </ul>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-content">
+    <div class="hero-logo-wrap">
+      <img src="https://res.cloudinary.com/doskjg9ls/image/upload/Le_Chaaya_Logo_No_Background_kixkma.png" alt="Le Chaaya" class="hero-logo">
+    </div>
+    <div class="hero-tag">Kochi · Kerala · Est. 2026</div>
+    <h1 class="hero-tagline" id="hero-tagline"></h1>
+    <div class="hero-about">
+      <span class="hero-about-note">Placeholder — about Le Chaaya (2-3 lines, human, no marketing)</span>
+      What Le Chaaya is — in plain words. Not what we want to be, just what we are and why it matters to the person reading this.
+    </div>
+    <div class="hero-cta-group">
+      <a href="#menu" class="btn-primary">See the Menu</a>
+      <a href="#outlets" class="btn-ghost">Find Us</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    scroll
+  </div>
+</section>
+
+<section class="about-section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <p class="section-label reveal">The Concept</p>
+        <h2 class="section-title reveal">The best chai you've had came from a roadside stall. We built a system around it.</h2>
+        <div class="gold-divider reveal"></div>
+        <p class="section-desc reveal">Limited menu. Fixed ratios. Real ingredients. No shortcuts on the tea. Le Chaaya is a specialty tea concept built on one idea: the same cup, made the same way, every time.</p>
+        <div class="about-pillars reveal">
+          <div class="pillar">
+            <div class="pillar-icon">☕</div>
+            <h4>Brewed right</h4>
+            <p>Fixed ratio, portioned to the gram, every time.</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">⚡</div>
+            <h4>Under 60 seconds</h4>
+            <p>Tea out the counter, fast.</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">📍</div>
+            <h4>High-footfall</h4>
+            <p>Malls, transit corridors, busy streets.</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">🌿</div>
+            <h4>Real ingredients</h4>
+            <p>Traditional methods. Nothing ultra-processed.</p>
+          </div>
+        </div>
+      </div>
+      <div class="about-visual">
+        <img src="https://res.cloudinary.com/doskjg9ls/image/upload/Le_Chaaya_Logo_No_Background_kixkma.png" alt="Le Chaaya" class="about-logo-large">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="menu-section" id="menu">
+  <div class="container" style="position:relative;z-index:2;">
+    <div class="menu-header">
+      <div>
+        <p class="section-label">What We Serve</p>
+        <h2 class="section-title">The Menu</h2>
+        <div class="gold-divider"></div>
+        <p style="font-size:13px;color:rgba(255,255,255,0.35);font-style:italic;">Tight menu. Every item earns its place.</p>
+      </div>
+      <div class="menu-tabs">
+        <button class="menu-tab active" onclick="filterMenu('all',this)">All</button>
+        <button class="menu-tab" onclick="filterMenu('drinks',this)">Drinks</button>
+        <button class="menu-tab" onclick="filterMenu('bites',this)">Bites</button>
+      </div>
+    </div>
+    <div class="menu-grid" id="menuGrid"></div>
+    <p class="menu-note">Add-ons available at the counter. Ask us.</p>
+  </div>
+</section>
+
+<section class="outlets-section" id="outlets">
+  <div class="container">
+    <p class="section-label reveal">Where to Find Us</p>
+    <h2 class="section-title reveal">Our Outlets</h2>
+    <div class="gold-divider reveal"></div>
+    <p class="section-desc reveal">Starting in Kochi.</p>
+    <div class="outlets-grid" id="outletsGrid"></div>
+    <div class="outlets-more" id="outletsMore" style="display:none;">
+      <button class="btn-expand" onclick="toggleOutlets()" id="expandBtn">See all outlets</button>
+    </div>
+  </div>
+</section>
+
+<section class="join-section" id="join">
+  <div class="container">
+    <div class="join-grid">
+      <div>
+        <p class="section-label reveal">Work With Us</p>
+        <h2 class="section-title reveal">Join Us</h2>
+        <div class="gold-divider reveal"></div>
+        <p class="section-desc reveal">We're opening in Kochi and we need good people. If you work hard and take what you do seriously, reach out.</p>
+        <div id="vacancyContent"></div>
+      </div>
+      <div>
+        <div class="contact-form" id="contact">
+          <h3>Get in touch</h3>
+          <form onsubmit="handleSubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Your Name</label>
+                <input type="text" name="name" required>
+              </div>
+              <div class="form-group">
+                <label>Phone / Email</label>
+                <input type="text" name="contact" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>I am interested in</label>
+              <select name="interest" id="interestSelect"></select>
+            </div>
+            <div class="form-group">
+              <label>Tell us a bit</label>
+              <textarea name="message" placeholder="Where are you based? Any relevant experience? Keep it short."></textarea>
+            </div>
+            <button type="submit" class="form-submit" id="submitBtn">Send</button>
+            <p class="form-note">We'll get back to you on WhatsApp or email.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="https://res.cloudinary.com/doskjg9ls/image/upload/Le_Chaaya_Logo_No_Background_kixkma.png" alt="Le Chaaya" class="footer-logo">
+      <div>
+        <div class="footer-name">Le Chaaya</div>
+        <div class="footer-tagline" id="footer-tagline"></div>
+      </div>
+    </div>
+    <div class="footer-links">
+      <a href="#menu">Menu</a>
+      <a href="#outlets">Outlets</a>
+      <a href="#join">Join Us</a>
+      <a href="#contact">Contact</a>
+      <a href="https://instagram.com/lechaaya" target="_blank">Instagram</a>
+    </div>
+  </div>
+  <div class="footer-bottom">2026 Le Chaaya. Kochi, Kerala, India.</div>
+</footer>
+
+<script>
+const SHOW_INITIAL = 3;
+let outletsExpanded = false;
+let MENU = [], LOCATIONS = [], VACANCIES = {}, TRANSLATIONS = {};
+
+// ─── FETCH ALL DATA ───────────────────────────────────────────────────────────
+Promise.all([
+  fetch('./data/translations.json').then(r => r.json()),
+  fetch('./data/menu.json').then(r => r.json()),
+  fetch('./data/locations.json').then(r => r.json()),
+  fetch('./data/vacancies.json').then(r => r.json())
+]).then(([translations, menu, locations, vacancies]) => {
+  TRANSLATIONS = translations;
+  MENU = menu.items;
+  LOCATIONS = locations.outlets;
+  VACANCIES = vacancies;
+  init();
+}).catch(err => {
+  console.error('Failed to load data:', err);
+});
+
+// ─── INIT — runs after all data is loaded ────────────────────────────────────
+function init() {
+  initTagline();
+  initMenu();
+  initOutlets();
+  initVacancies();
+  initForm();
+  initReveal();
+}
+
+// ─── TAGLINE CYCLE ────────────────────────────────────────────────────────────
+function initTagline() {
+  const cycleOrder = ['ml', 'ta', 'hi', 'en'];
+  const browserLang = (navigator.language || 'ml').split('-')[0].toLowerCase();
+  let cycleIndex = cycleOrder.includes(browserLang) ? cycleOrder.indexOf(browserLang) : 0;
+
+  const taglineEl = document.getElementById('hero-tagline');
+  taglineEl.textContent = TRANSLATIONS.tagline[cycleOrder[cycleIndex]];
+
+  document.getElementById('footer-tagline').textContent = TRANSLATIONS.tagline.ml;
+
+  setInterval(() => {
+    taglineEl.style.opacity = '0';
+    setTimeout(() => {
+      cycleIndex = (cycleIndex + 1) % cycleOrder.length;
+      taglineEl.textContent = TRANSLATIONS.tagline[cycleOrder[cycleIndex]];
+      taglineEl.style.opacity = '1';
+    }, 500);
+  }, 2400);
+}
+
+// ─── MENU ─────────────────────────────────────────────────────────────────────
+function renderMenu(cat) {
+  const grid = document.getElementById('menuGrid');
+  const items = cat === 'all' ? MENU : MENU.filter(i => i.category === cat);
+  grid.innerHTML = items.map(item => {
+    const variantTags = item.variants.map(v => `<span class="variant-tag">${v}</span>`).join('');
+    const addonTags = item.addons.map(a => `<span class="variant-tag" style="color:rgba(212,175,55,0.6);">${a}</span>`).join('');
+    return `
+      <div class="menu-card" data-cat="${item.category}">
+        <div class="menu-card-header"><span class="menu-card-badge badge-${item.badgeStyle}">${item.badge}</span></div>
+        <h3>${item.name}</h3>
+        <p>${item.description}</p>
+        <div class="menu-card-footer">
+          <div class="menu-variants">${variantTags}${addonTags}</div>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+function initMenu() { renderMenu('all'); }
+
+function filterMenu(cat, btn) {
+  document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  renderMenu(cat);
+}
+
+// ─── OUTLETS ──────────────────────────────────────────────────────────────────
+function renderOutlets(showAll) {
+  const grid = document.getElementById('outletsGrid');
+  const list = showAll ? LOCATIONS : LOCATIONS.slice(0, SHOW_INITIAL);
+  grid.innerHTML = list.map(loc => {
+    const statusClass = loc.status === 'live' ? 'status-live' : 'status-soon';
+    const mapsLink = loc.mapsUrl
+      ? `<a href="${loc.mapsUrl}" target="_blank" class="outlet-link">Open in Maps <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" width="11" height="11"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>`
+      : '';
+    return `
+      <div class="outlet-card">
+        <div class="outlet-card-top">
+          <div class="outlet-number">${loc.number}</div>
+          <div><h3>${loc.city}</h3><p>${loc.subtitle}</p></div>
+        </div>
+        <div class="outlet-card-body">
+          <div class="outlet-status ${statusClass}">
+            <div class="status-dot"></div>${loc.statusLabel}
+          </div>
+          <div class="outlet-detail">
+            <svg class="outlet-detail-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><path d="M8 2C5.8 2 4 3.8 4 6c0 3.5 4 8 4 8s4-4.5 4-8c0-2.2-1.8-4-4-4z"/><circle cx="8" cy="6" r="1.5"/></svg>
+            ${loc.address}
+          </div>
+          <div class="outlet-detail">
+            <svg class="outlet-detail-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 2"/></svg>
+            ${loc.hours}
+          </div>
+          ${mapsLink}
+        </div>
+      </div>`;
+  }).join('');
+
+  if (LOCATIONS.length > SHOW_INITIAL) {
+    document.getElementById('outletsMore').style.display = 'block';
+    document.getElementById('expandBtn').textContent = showAll ? 'Show less' : 'See all outlets';
+  }
+}
+
+function initOutlets() { renderOutlets(false); }
+
+function toggleOutlets() {
+  outletsExpanded = !outletsExpanded;
+  renderOutlets(outletsExpanded);
+}
+
+// ─── VACANCIES ────────────────────────────────────────────────────────────────
+function initVacancies() {
+  const container = document.getElementById('vacancyContent');
+  const openList = VACANCIES.list.filter(v => v.open);
+
+  if (openList.length > 0) {
+    container.innerHTML = '<div class="vacancy-list">' +
+      openList.map(v => `
+        <div class="vacancy-card">
+          <div class="vacancy-card-top">
+            <h4>${v.title}</h4>
+            <span class="vacancy-badge">${v.level}</span>
+          </div>
+          <p>${v.location}</p>
+        </div>`).join('') +
+    '</div>';
+  } else {
+    container.innerHTML = `
+      <div class="no-openings-notice">No openings right now, but we are always looking for good people. Use the form to express interest and we will reach out when something comes up.</div>`;
+  }
+}
+
+// ─── FORM ─────────────────────────────────────────────────────────────────────
+function initForm() {
+  const select = document.getElementById('interestSelect');
+  VACANCIES.interestOptions.forEach(opt => {
+    const o = document.createElement('option');
+    o.value = opt.value;
+    o.textContent = opt.label;
+    select.appendChild(o);
+  });
+}
+
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submitBtn');
+  btn.textContent = 'Sent';
+  btn.style.background = '#0f4f42';
+  setTimeout(() => {
+    btn.textContent = 'Send';
+    btn.style.background = '';
+    e.target.reset();
+  }, 3000);
+}
+
+// ─── SCROLL REVEAL ────────────────────────────────────────────────────────────
+function initReveal() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('revealed'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+}
+</script>
+</body>
+</html>
