@@ -9,7 +9,8 @@
       "statusLabel": "Now Open",
       "address": "Address TBC",
       "hours": "Hours TBC",
-      "mapsUrl": ""
+      "mapsUrl": "",
+      "image": ""
     },
     {
       "id": 2,
@@ -20,7 +21,8 @@
       "statusLabel": "Coming Soon",
       "address": "Location being scouted",
       "hours": "2026-2027",
-      "mapsUrl": ""
+      "mapsUrl": "",
+      "image": ""
     },
     {
       "id": 3,
@@ -31,7 +33,8 @@
       "statusLabel": "Coming Soon",
       "address": "Location being scouted",
       "hours": "2027",
-      "mapsUrl": ""
+      "mapsUrl": "",
+      "image": ""
     }
   ]
 }
