@@ -680,6 +680,34 @@ section { padding: 6rem 2rem; }
 .form-submit:hover { background: var(--green-light); transform: translateY(-1px); }
 .form-note { font-size: 11px; color: var(--text-muted); text-align: center; margin-top: 0.75rem; }
 
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(120%);
+  background: var(--green);
+  color: var(--cream);
+  padding: 14px 24px;
+  border-radius: 8px;
+  border: 1px solid rgba(212,175,55,0.3);
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  z-index: 9999;
+  opacity: 0;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.3s;
+  pointer-events: none;
+  max-width: calc(100vw - 2rem);
+}
+.toast.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+.toast.error {
+  background: #6b2424;
+  border-color: rgba(255,255,255,0.15);
+}
+
 /* FOOTER */
 footer { background: var(--green-dark); padding: 3rem 2rem; }
 
@@ -835,12 +863,12 @@ footer { background: var(--green-dark); padding: 3rem 2rem; }
       <div>
         <div class="contact-form" id="contact">
           <h3>Get in touch</h3>
-          <form action="https://formsubmit.co/vishnu.gopinath13@gmail.com" method="POST" onsubmit="handleSubmit(event)">
+          <form action="https://formsubmit.co/el/885774d08c24c3a6c8a3702a7904e850" method="POST" onsubmit="handleSubmit(event)">
   <input type="hidden" name="_subject" value="New Le Chaaya Join Us Submission">
   <input type="hidden" name="_template" value="table">
   <input type="hidden" name="_captcha" value="false">
   <input type="text" name="_honey" style="display:none">
-  <input type="hidden" name="_next" value="https://haritha2302.github.io/Le-Chaaya-Website/#joinus">
+  <input type="hidden" name="_next" value="https://haritha2302.github.io/Le-Chaaya-Website/">
             <div class="form-row">
               <div class="form-group">
                 <label>Your Name</label>
@@ -1048,6 +1076,14 @@ function initForm() {
     select.appendChild(o);
   });
 }
+function showToast(message, isError = false) {
+  const toast = document.getElementById('toast');
+  toast.textContent = message;
+  toast.classList.toggle('error', isError);
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 4000);
+}
+
 async function handleSubmit(e) {
   e.preventDefault();
   const btn = document.getElementById('submitBtn');
@@ -1063,25 +1099,17 @@ async function handleSubmit(e) {
     });
     
     if (response.ok) {
-      btn.textContent = 'Sent';
-      btn.style.background = '#0f4f42';
+      showToast("Got it. We'll be in touch.");
       form.reset();
-      setTimeout(() => {
-        btn.textContent = 'Send';
-        btn.style.background = '';
-        btn.disabled = false;
-      }, 3000);
+      btn.textContent = 'Send';
+      btn.disabled = false;
     } else {
       throw new Error('Submission failed');
     }
   } catch (err) {
-    btn.textContent = 'Try again';
-    btn.style.background = '#a13b3b';
+    showToast("Something went wrong. Please try again.", true);
+    btn.textContent = 'Send';
     btn.disabled = false;
-    setTimeout(() => {
-      btn.textContent = 'Send';
-      btn.style.background = '';
-    }, 3000);
   }
 }
 
@@ -1097,5 +1125,8 @@ function initReveal() {
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 }
 </script>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+  
 </body>
 </html>
