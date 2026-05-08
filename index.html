@@ -306,7 +306,15 @@ section { padding: 6rem 2rem; }
   align-items: center;
 }
 
-.about-visual { display: flex; justify-content: center; align-items: stretch; }
+.about-visual {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  background: #0d1f1a;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 0;
+}
 
 .about-logo-large {
   width: 200px;
@@ -322,10 +330,11 @@ section { padding: 6rem 2rem; }
   height: 100%;
   min-height: 460px;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 0;
   display: block;
-  -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-  mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%);
+  opacity: 0.88;
 }
   
 .about-logo-large:hover { transform: scale(1.04) rotate(2deg); }
@@ -396,20 +405,27 @@ section { padding: 6rem 2rem; }
 }
 
 .menu-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 
 .menu-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(212,175,55,0.15);
-  border-radius: 12px;
-  padding: 1.5rem;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(212,175,55,0.1);
+  border-radius: 0;
+  padding: 1.25rem 0;
   transition: all 0.25s;
   position: relative;
-  overflow: hidden;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto auto;
+  column-gap: 1rem;
 }
+.menu-card:last-child { border-bottom: none; }
+.menu-card:hover { background: rgba(255,255,255,0.03); }
+.menu-card:hover::after { opacity: 0; }
 
 .menu-card::after {
   content: '';
@@ -424,7 +440,7 @@ section { padding: 6rem 2rem; }
 .menu-card:hover { background: rgba(255,255,255,0.07); border-color: rgba(212,175,55,0.35); transform: translateY(-4px); }
 .menu-card:hover::after { opacity: 1; }
 
-.menu-card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem; }
+.menu-card-header { grid-column: 1; grid-row: 1; display: flex; align-items: center; margin-bottom: 0; padding-top: 2px; }
 
 .menu-card-badge {
   font-size: 10px;
@@ -441,15 +457,17 @@ section { padding: 6rem 2rem; }
 .badge-pair { background: rgba(212,175,55,0.08); color: rgba(212,175,55,0.7); border: 1px solid rgba(212,175,55,0.15); }
 .badge-bigbite { background: rgba(180,100,60,0.12); color: #c47a3a; border: 1px solid rgba(180,100,60,0.25); }
 
-.menu-card h3 { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 0.4rem; line-height: 1.2; }
-.menu-card p { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.6; margin-bottom: 1rem; }
+.menu-card h3 { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 0.2rem; line-height: 1.2; grid-column: 2; grid-row: 1; }
+.menu-card p { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.6; margin-bottom: 0.5rem; grid-column: 2; grid-row: 2; }
 
 .menu-card-footer {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
-  border-top: 1px solid rgba(212,175,55,0.1);
-  padding-top: 1rem;
+  border-top: none;
+  padding-top: 0;
+  grid-column: 2;
+  grid-row: 3;
 }
 
 .menu-variants { display: flex; flex-wrap: wrap; gap: 4px; }
@@ -463,7 +481,9 @@ section { padding: 6rem 2rem; }
   overflow: hidden;
   display: block;
   margin-bottom: 0;
+  background: var(--green);
 }
+  
 .menu-strip-img {
   width: 100%;
   height: 100%;
@@ -472,6 +492,30 @@ section { padding: 6rem 2rem; }
   filter: brightness(0.55);
 }
 
+.menu-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+.menu-image-col {
+  position: sticky;
+  top: 80px;
+}
+.menu-side-img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  border-radius: 8px;
+  filter: brightness(0.85);
+}
+.menu-content-col { flex: 1; }
+
+@media (max-width: 768px) {
+  .menu-layout { grid-template-columns: 1fr; }
+  .menu-image-col { display: none; }
+}
+  
 /* OUTLETS */
 .outlets-section { background: #fff; }
 
@@ -535,7 +579,7 @@ section { padding: 6rem 2rem; }
 
 /* JOIN */
 .join-section {
-  background: linear-gradient(rgba(240,232,208,0.92), rgba(240,232,208,0.92)), url('images/join.PNG') center/cover no-repeat;
+  background: linear-gradient(rgba(240,232,208,0.20), rgba(240,232,208,0.20)), url('images/join.PNG') center/cover no-repeat;
 }
 
 .join-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
@@ -685,11 +729,13 @@ footer { background: var(--green-dark); padding: 3rem 2rem; }
 </section>
 
 <section class="menu-section" id="menu">
-  <div class="menu-photo-strip">
-    <img src="images/menu.png" alt="" class="menu-strip-img">
-  </div>
   <div class="container" style="position:relative;z-index:2;">
-    <div class="menu-header">
+    <div class="menu-layout">
+<div class="menu-image-col">
+  <img src="images/menu.png" alt="" class="menu-side-img">
+</div>
+<div class="menu-content-col">
+<div class="menu-header">
       <div>
         <p class="section-label">What We Serve</p>
         <h2 class="section-title">The Menu</h2>
@@ -705,6 +751,8 @@ footer { background: var(--green-dark); padding: 3rem 2rem; }
     <div class="menu-grid" id="menuGrid"></div>
     <p class="menu-note">Add-ons available at the counter. Ask us. &nbsp;·&nbsp; Images are for illustrative purposes only.</p>
   </div>
+</div>
+</div>
 </section>
 
 <section class="outlets-section" id="outlets">
