@@ -514,7 +514,7 @@ section { padding: 6rem 2rem; }
   display: grid;
   grid-template-columns: 340px 1fr;
   gap: 3rem;
-  align-items: stretch;
+  align-items: center;
   max-width: 1240px;
   margin: 0 auto;
   padding: 5rem 2rem 5rem 0;
@@ -552,7 +552,8 @@ section { padding: 6rem 2rem; }
 .menu-image-col {
   margin-top: -5rem;
   margin-bottom: -5rem;
-  margin-left: calc((100vw - 1240px) / -2);
+  margin-left: calc(50% - 50vw);
+  width: calc(50vw - 50% + 340px);
 }
 .menu-side-img {
   border-radius: 0;
