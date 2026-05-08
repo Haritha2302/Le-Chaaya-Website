@@ -6,7 +6,7 @@
       "category": "drinks",
       "badge": "Signature",
       "badgeStyle": "sig",
-      "description": "Milk tea brewed in a samovar to a fixed ratio. Strong and consistent, every cup.",
+      "description": "Kerala-style milk tea. Strong, consistent, served from a samovar.",
       "variants": ["Hot", "With milk", "Sugar optional"],
       "addons": []
     },
@@ -16,7 +16,7 @@
       "category": "drinks",
       "badge": "Signature",
       "badgeStyle": "sig",
-      "description": "Black tea, no milk. Same decoction, diluted with hot water. No frills, nothing added.",
+      "description": "Black tea, no milk. Same samovar decoction, diluted with hot water.",
       "variants": ["Hot", "No milk", "Sugar optional"],
       "addons": []
     },
@@ -26,7 +26,7 @@
       "category": "drinks",
       "badge": "Cold",
       "badgeStyle": "sig",
-      "description": "Fresh lime with water or soda. If tea isn't your thing, this is.",
+      "description": "Fresh lime with water or soda. The cold option.",
       "variants": ["Water or soda", "Ice optional"],
       "addons": []
     },
@@ -36,7 +36,7 @@
       "category": "bites",
       "badge": "Pairing",
       "badgeStyle": "pair",
-      "description": "Kerala bakery rusk. Sourced fresh, stored airtight, never served soft. Pair it with your Chaaya.",
+      "description": "Kerala bakery rusk. Served with chaaya - the dip is the point.",
       "variants": ["Solo", "Chaaya + Rusk combo"],
       "addons": []
     },
@@ -44,30 +44,40 @@
       "id": "noodles",
       "name": "Le Noodles",
       "category": "bites",
-      "badge": "Bite",
-      "badgeStyle": "bite",
-      "description": "Spiced instant noodles, prepped to a fixed spec. Goes well with a Chaaya.",
+      "badge": "Big Bite",
+      "badgeStyle": "bigbite",
+      "description": "Spiced instant noodles, prepped to a fixed spec.",
       "variants": ["Standard"],
       "addons": ["+ Vegetables"]
     },
     {
-      "id": "upma",
-      "name": "Le Upma",
+      "id": "chilli-butter-rice",
+      "name": "Le Chilli Butter Rice",
       "category": "bites",
-      "badge": "Bite",
-      "badgeStyle": "bite",
-      "description": "Classic semolina upma from premium premix. Hot and filling.",
-      "variants": ["Hot"],
+      "badge": "Big Bite",
+      "badgeStyle": "bigbite",
+      "description": "Hot steamed rice, a pat of butter, a drizzle of soy and chilli oil. Comfort in a bowl, ready in minutes.",
+      "variants": ["Standard"],
       "addons": []
     },
     {
-      "id": "kadala",
-      "name": "Le Kadala",
+      "id": "pazhampori",
+      "name": "Pazhampori",
       "category": "bites",
       "badge": "Bite",
       "badgeStyle": "bite",
-      "description": "Sprouted black chickpea or green gram, tempered with mustard, curry leaves, and spices. Warm. Rotates daily. Until it runs out.",
-      "variants": ["Kadala or green gram"],
+      "description": "The Kerala classic. Banana fritters, fried golden.",
+      "variants": ["Sold by piece","Best with chaaya"],
+      "addons": []
+    },
+    {
+      "id": "nutella-cheese-toast",
+      "name": "Le Nutella Cheese Toast",
+      "category": "bites",
+      "badge": "Bite",
+      "badgeStyle": "bite",
+      "description": "Toasted bread, a layer of Nutella, a slice of melted cheese on top. Sweet, salty, indulgent.",
+      "variants": ["Standard"],
       "addons": []
     }
   ]
