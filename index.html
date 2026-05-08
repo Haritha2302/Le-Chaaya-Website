@@ -287,7 +287,7 @@ section { padding: 6rem 2rem; }
   max-width: 520px;
 }
 
-.container { max-width: 1100px; margin: 0 auto; }
+.container { max-width: 1200px; margin: 0 auto; }
 
 .gold-divider {
   width: 48px;
@@ -299,11 +299,14 @@ section { padding: 6rem 2rem; }
 /* ABOUT */
 .about-section { background: var(--cream); }
 
+.about-section { padding-top: 0; padding-bottom: 0; }
+.about-section .container { padding: 6rem 0; }
+
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 5rem;
-  align-items: center;
+  align-items: stretch;
 }
 
 .about-visual {
@@ -314,6 +317,8 @@ section { padding: 6rem 2rem; }
   border-radius: 10px;
   overflow: hidden;
   padding: 0;
+  align-self: stretch;
+  min-height: 100%;
 }
 
 .about-logo-large {
@@ -328,7 +333,7 @@ section { padding: 6rem 2rem; }
 .about-photo {
   width: 100%;
   height: 100%;
-  min-height: 460px;
+  min-height: 100%;
   object-fit: cover;
   border-radius: 0;
   display: block;
@@ -405,42 +410,35 @@ section { padding: 6rem 2rem; }
 }
 
 .menu-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 3rem;
+  row-gap: 1.75rem;
 }
 
 .menu-card {
   background: transparent;
   border: none;
-  border-bottom: 1px solid rgba(212,175,55,0.1);
   border-radius: 0;
-  padding: 1.25rem 0;
-  transition: all 0.25s;
+  padding: 0;
   position: relative;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-rows: auto auto auto;
-  column-gap: 1rem;
+  display: block;
+  transition: opacity 0.2s;
 }
-.menu-card:last-child { border-bottom: none; }
-.menu-card:hover { background: rgba(255,255,255,0.03); }
-.menu-card:hover::after { opacity: 0; }
-
-.menu-card::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--gold-dark), var(--gold), transparent);
-  opacity: 0;
-  transition: opacity 0.25s;
-}
+.menu-card:hover { opacity: 0.85; }
 
 .menu-card:hover { background: rgba(255,255,255,0.07); border-color: rgba(212,175,55,0.35); transform: translateY(-4px); }
 .menu-card:hover::after { opacity: 1; }
 
-.menu-card-header { grid-column: 1; grid-row: 1; display: flex; align-items: center; margin-bottom: 0; padding-top: 2px; }
+.badge-sig { background: rgba(212,175,55,0.15); color: var(--gold); border: 1px solid rgba(212,175,55,0.3); }
+.badge-bite { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.5); border: 1px solid rgba(255,255,255,0.12); }
+.badge-fresh { background: rgba(30,200,120,0.1); color: #5de0a0; border: 1px solid rgba(30,200,120,0.2); }
+.badge-pair { background: rgba(212,175,55,0.08); color: rgba(212,175,55,0.7); border: 1px solid rgba(212,175,55,0.15); }
+.badge-bigbite { background: rgba(180,100,60,0.12); color: #c47a3a; border: 1px solid rgba(180,100,60,0.25); }
+
+.menu-card-row { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 4px; }
+.menu-card h3 { font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 700; color: #fff; line-height: 1.2; margin: 0; }
+.menu-card p { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.55; margin: 0; }
 
 .menu-card-badge {
   font-size: 10px;
@@ -449,25 +447,8 @@ section { padding: 6rem 2rem; }
   text-transform: uppercase;
   padding: 3px 8px;
   border-radius: 2px;
-}
-
-.badge-sig { background: rgba(212,175,55,0.15); color: var(--gold); border: 1px solid rgba(212,175,55,0.3); }
-.badge-bite { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.5); border: 1px solid rgba(255,255,255,0.12); }
-.badge-fresh { background: rgba(30,200,120,0.1); color: #5de0a0; border: 1px solid rgba(30,200,120,0.2); }
-.badge-pair { background: rgba(212,175,55,0.08); color: rgba(212,175,55,0.7); border: 1px solid rgba(212,175,55,0.15); }
-.badge-bigbite { background: rgba(180,100,60,0.12); color: #c47a3a; border: 1px solid rgba(180,100,60,0.25); }
-
-.menu-card h3 { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 0.2rem; line-height: 1.2; grid-column: 2; grid-row: 1; }
-.menu-card p { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.6; margin-bottom: 0.5rem; grid-column: 2; grid-row: 2; }
-
-.menu-card-footer {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  border-top: none;
-  padding-top: 0;
-  grid-column: 2;
-  grid-row: 3;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .menu-variants { display: flex; flex-wrap: wrap; gap: 4px; }
@@ -494,17 +475,18 @@ section { padding: 6rem 2rem; }
 
 .menu-layout {
   display: grid;
-  grid-template-columns: 280px 1fr;
+  grid-template-columns: 380px 1fr;
   gap: 3rem;
-  align-items: start;
+  align-items: stretch;
 }
 .menu-image-col {
-  position: sticky;
-  top: 80px;
+  align-self: stretch;
+  display: flex;
 }
 .menu-side-img {
   width: 100%;
-  height: 480px;
+  height: 100%;
+  min-height: 100%;
   object-fit: cover;
   border-radius: 8px;
   filter: brightness(0.85);
@@ -514,6 +496,10 @@ section { padding: 6rem 2rem; }
 @media (max-width: 768px) {
   .menu-layout { grid-template-columns: 1fr; }
   .menu-image-col { display: none; }
+}
+
+@media (max-width: 768px) {
+  .menu-grid { grid-template-columns: 1fr; }
 }
   
 /* OUTLETS */
@@ -579,8 +565,18 @@ section { padding: 6rem 2rem; }
 
 /* JOIN */
 .join-section {
-  background: linear-gradient(rgba(240,232,208,0.20), rgba(240,232,208,0.20)), url('images/join.PNG') center/cover no-repeat;
+  background: linear-gradient(rgba(11,61,51,0.72), rgba(11,61,51,0.72)), url('images/join.PNG') center/cover no-repeat;
 }
+
+.join-section .section-title { color: var(--gold-light); }
+.join-section .section-label { color: var(--gold); }
+.join-section .section-desc { color: rgba(255,255,255,0.85); }
+.join-section .no-openings-notice {
+  background: rgba(0,0,0,0.25);
+  border-color: rgba(212,175,55,0.4);
+  color: rgba(241,213,146,0.9);
+}
+.join-section .gold-divider { background: linear-gradient(90deg, var(--gold), var(--gold-light)); }
 
 .join-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
 
@@ -886,16 +882,16 @@ function renderMenu(cat) {
   const grid = document.getElementById('menuGrid');
   const items = cat === 'all' ? MENU : MENU.filter(i => i.category === cat);
   grid.innerHTML = items.map(item => {
-    const variantTags = item.variants.map(v => `<span class="variant-tag">${v}</span>`).join('');
-    const addonTags = item.addons.map(a => `<span class="variant-tag" style="color:rgba(212,175,55,0.6);">${a}</span>`).join('');
+    const badge = item.badge
+      ? `<span class="menu-card-badge badge-${item.badgeStyle}">${item.badge}</span>`
+      : '';
     return `
       <div class="menu-card" data-cat="${item.category}">
-        <div class="menu-card-header"><span class="menu-card-badge badge-${item.badgeStyle}">${item.badge}</span></div>
-        <h3>${item.name}</h3>
-        <p>${item.description}</p>
-        <div class="menu-card-footer">
-          <div class="menu-variants">${variantTags}${addonTags}</div>
+        <div class="menu-card-row">
+          <h3>${item.name}</h3>
+          ${badge}
         </div>
+        <p>${item.description}</p>
       </div>`;
   }).join('');
 }
