@@ -502,6 +502,13 @@ section { padding: 6rem 2rem; }
 .status-live .status-dot { background: #4ade80; animation: pulse 2s infinite; }
 .status-live { color: #16a34a; }
 
+.outlet-card-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+}
+
 @keyframes pulse {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.4; }
@@ -857,9 +864,13 @@ function renderOutlets(showAll) {
     const mapsLink = loc.mapsUrl
       ? `<a href="${loc.mapsUrl}" target="_blank" class="outlet-link">Open in Maps <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" width="11" height="11"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>`
       : '';
-    return `
-      <div class="outlet-card">
-        <div class="outlet-card-top">
+    const outletImg = loc.image
+  ? `<img src="${loc.image}" alt="${loc.city}" class="outlet-card-img">`
+  : '';
+return `
+  <div class="outlet-card">
+    ${outletImg}
+    <div class="outlet-card-top">
           <div class="outlet-number">${loc.number}</div>
           <div><h3>${loc.city}</h3><p>${loc.subtitle}</p></div>
         </div>
