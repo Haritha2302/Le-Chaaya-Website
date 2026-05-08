@@ -321,6 +321,14 @@ section { padding: 6rem 2rem; }
   min-height: 100%;
 }
 
+.about-section { padding-top: 0; padding-bottom: 0; }
+.about-grid { padding: 6rem 0; }
+.about-visual {
+  margin-top: -6rem;
+  margin-bottom: -6rem;
+  border-radius: 0;
+}
+
 .about-logo-large {
   width: 200px;
   height: 200px;
@@ -418,14 +426,20 @@ section { padding: 6rem 2rem; }
 
 .menu-card {
   background: transparent;
-  border: none;
-  border-radius: 0;
-  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+  margin: -1rem -1.25rem;
   position: relative;
   display: block;
-  transition: opacity 0.2s;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  cursor: default;
 }
-.menu-card:hover { opacity: 0.85; }
+.menu-card:hover {
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(212,175,55,0.2);
+  transform: translateX(4px);
+}
 
 .menu-card:hover { background: rgba(255,255,255,0.07); border-color: rgba(212,175,55,0.35); transform: translateY(-4px); }
 .menu-card:hover::after { opacity: 1; }
@@ -500,6 +514,16 @@ section { padding: 6rem 2rem; }
 
 @media (max-width: 768px) {
   .menu-grid { grid-template-columns: 1fr; }
+}
+
+.menu-section { padding-top: 0; padding-bottom: 0; }
+.menu-layout { padding: 6rem 0; }
+.menu-image-col {
+  margin-top: -6rem;
+  margin-bottom: -6rem;
+}
+.menu-side-img {
+  border-radius: 0;
 }
   
 /* OUTLETS */
