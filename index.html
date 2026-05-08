@@ -314,11 +314,16 @@ section { padding: 6rem 2rem; }
   justify-content: center;
   align-items: stretch;
   background: #0d1f1a;
-  border-radius: 10px;
   overflow: hidden;
   padding: 0;
-  align-self: stretch;
-  min-height: 100%;
+  margin-top: -6rem;
+  margin-bottom: -6rem;
+  margin-right: calc((100vw - 1200px) / -2);
+  border-radius: 0;
+}
+
+@media (max-width: 1200px) {
+  .about-visual { margin-right: -2rem; }
 }
 
 .about-section {
