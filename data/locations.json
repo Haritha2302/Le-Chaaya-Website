@@ -4,11 +4,11 @@
       "id": 1,
       "number": "01",
       "city": "Kochi, Kerala",
-      "subtitle": "Flagship outlet",
+      "subtitle": "First outlet",
       "status": "live",
-      "statusLabel": "Now Open",
+      "statusLabel": "Coming Soon",
       "address": "Address TBC",
-      "hours": "Hours TBC",
+      "hours": "July 2026",
       "mapsUrl": "",
       "image": ""
     },
@@ -20,19 +20,7 @@
       "status": "soon",
       "statusLabel": "Coming Soon",
       "address": "Location being scouted",
-      "hours": "2026-2027",
-      "mapsUrl": "",
-      "image": ""
-    },
-    {
-      "id": 3,
-      "number": "03",
-      "city": "Kerala",
-      "subtitle": "Next outlet",
-      "status": "soon",
-      "statusLabel": "Coming Soon",
-      "address": "Location being scouted",
-      "hours": "2027",
+      "hours": "August 2026",
       "mapsUrl": "",
       "image": ""
     }
