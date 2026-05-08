@@ -835,7 +835,12 @@ footer { background: var(--green-dark); padding: 3rem 2rem; }
       <div>
         <div class="contact-form" id="contact">
           <h3>Get in touch</h3>
-          <form onsubmit="handleSubmit(event)">
+          <form action="https://formsubmit.co/vishnu.gopinath13@gmail.com" method="POST" onsubmit="handleSubmit(event)">
+  <input type="hidden" name="_subject" value="New Le Chaaya Join Us Submission">
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="text" name="_honey" style="display:none">
+  <input type="hidden" name="_next" value="https://haritha2302.github.io/Le-Chaaya-Website/#joinus">
             <div class="form-row">
               <div class="form-group">
                 <label>Your Name</label>
@@ -1043,17 +1048,41 @@ function initForm() {
     select.appendChild(o);
   });
 }
-
-function handleSubmit(e) {
+async function handleSubmit(e) {
   e.preventDefault();
   const btn = document.getElementById('submitBtn');
-  btn.textContent = 'Sent';
-  btn.style.background = '#0f4f42';
-  setTimeout(() => {
-    btn.textContent = 'Send';
-    btn.style.background = '';
-    e.target.reset();
-  }, 3000);
+  const form = e.target;
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+  
+  try {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+    
+    if (response.ok) {
+      btn.textContent = 'Sent';
+      btn.style.background = '#0f4f42';
+      form.reset();
+      setTimeout(() => {
+        btn.textContent = 'Send';
+        btn.style.background = '';
+        btn.disabled = false;
+      }, 3000);
+    } else {
+      throw new Error('Submission failed');
+    }
+  } catch (err) {
+    btn.textContent = 'Try again';
+    btn.style.background = '#a13b3b';
+    btn.disabled = false;
+    setTimeout(() => {
+      btn.textContent = 'Send';
+      btn.style.background = '';
+    }, 3000);
+  }
 }
 
 // ─── SCROLL REVEAL ────────────────────────────────────────────────────────────
