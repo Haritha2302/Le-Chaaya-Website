@@ -13,6 +13,13 @@
       "location": "Infopark, Kochi",
       "level": "Entry level",
       "open": false
+    },
+    {
+      "id": 3,
+      "title": "Outlet Crew",
+      "location": "TBC",
+      "level": "Entry level",
+      "open": true
     }
   ],
   "interestOptions": [
