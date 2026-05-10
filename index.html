@@ -364,48 +364,43 @@ section { padding: 6rem 2rem; }
 }
 
 /* CHAAYA MAP */
-.chaaya-map-section { background: var(--green-dark); }
-
-.chaaya-map-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 5rem;
-  align-items: stretch;
-  padding: 9rem 0;
-}
-
-.chaaya-map-visual {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  background: #0d1f1a;
+/* CHAAYA MAP */
+.chaaya-map-section {
+  position: relative;
+  background-color: var(--green-dark);
+  background-image: url('images/chaaya-map.PNG');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 7rem 2rem;
   overflow: hidden;
-  padding: 0;
-  margin-top: -6rem;
-  margin-bottom: -6rem;
-  margin-left: calc((100vw - 1200px) / -2);
-  border-radius: 0;
 }
 
-@media (max-width: 1200px) {
-  .chaaya-map-visual { margin-left: -2rem; }
+.chaaya-map-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(11,31,26,0.92) 0%, rgba(11,31,26,0.78) 50%, rgba(11,31,26,0.88) 100%);
+  z-index: 1;
 }
 
-.chaaya-map-photo {
-  width: 100%;
-  height: 100%;
-  min-height: 100%;
-  object-fit: cover;
-  display: block;
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%);
-  mask-image: linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%);
-  opacity: 0.88;
+.chaaya-map-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  text-align: center;
 }
 
-.chaaya-map-content { display: flex; flex-direction: column; justify-content: center; padding: 4rem 0; }
-
-.chaaya-map-section .gold-divider {
+.chaaya-map-inner .gold-divider {
+  margin-left: auto;
+  margin-right: auto;
   background: linear-gradient(90deg, var(--gold-dark), var(--gold));
+}
+
+.chaaya-map-desc {
+  color: rgba(255,255,255,0.78);
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 1.75rem;
 }
   
 .about-logo-large {
@@ -775,7 +770,7 @@ footer { background: var(--green-dark); padding: 3rem 2rem; }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-  .about-grid, .join-grid, .chaaya-map-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .about-grid, .join-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .about-visual { display: none; }
   .nav-links { display: none; }
   .form-row { grid-template-columns: 1fr; }
@@ -897,22 +892,16 @@ footer { background: var(--green-dark); padding: 3rem 2rem; }
   </div>
 </section>
 
-<section class="chaaya-map-section" id="chaaya-map" style="background: var(--green-dark); padding-top: 0; padding-bottom: 0; overflow: hidden;">
-  <div class="container" style="padding: 0;">
-    <div class="chaaya-map-grid">
-      <div class="chaaya-map-content">
-        <p class="section-label reveal" style="color: var(--gold);">Beyond Our Counter</p>
-        <h2 class="section-title reveal" style="color: var(--cream);">The Chaaya Map</h2>
-        <div class="gold-divider reveal"></div>
-        <p class="reveal" style="color: rgba(255,255,255,0.7); font-size: 15px; line-height: 1.7; margin-bottom: 1.75rem;">
-          Want a good chaaya right now but don't know where to go? We've reviewed and rated chaayakkadas across the city. Find one near you.
-        </p>
-        <a href="https://find-chaaya.lechaaya.in" target="_blank" class="btn-primary reveal" style="display: inline-block;">Open the Chaaya Map →</a>
-      </div>
-      <div class="chaaya-map-visual">
-        <img src="images/chaaya-map.jpeg" alt="The Chaaya Map" class="chaaya-map-photo">
-      </div>
-    </div>
+<section class="chaaya-map-section" id="chaaya-map">
+  <div class="chaaya-map-overlay"></div>
+  <div class="container chaaya-map-inner">
+    <p class="section-label reveal" style="color: var(--gold);">Beyond Our Counter</p>
+    <h2 class="section-title reveal" style="color: var(--cream);">The Chaaya Map</h2>
+    <div class="gold-divider reveal"></div>
+    <p class="reveal chaaya-map-desc">
+      Want a good chaaya right now but don't know where to go? We've reviewed and rated chaayakkadas across the city. Find one near you.
+    </p>
+    <a href="https://find-chaaya.lechaaya.in" target="_blank" class="btn-primary reveal" style="display: inline-block;">Open the Chaaya Map →</a>
   </div>
 </section>
 
