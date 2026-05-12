@@ -775,7 +775,11 @@ footer { background: var(--green-dark); padding: 3rem 2rem; }
 @media (max-width: 768px) {
   .about-grid, .join-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .about-visual { display: none; }
-  .nav-links { gap: 1.25rem; }
+  .nav-links { gap: 1rem; flex-wrap: wrap; justify-content: flex-end; }
+  .nav-links li:has(.nav-insta), .nav-links li:has(.nav-cta) { display: none; }
+  .nav-links a { font-size: 11px; letter-spacing: 0.04em; }
+  nav { padding: 1rem 1.25rem; }
+  .nav-name { display: none; }
   .nav-links li:has(.nav-insta), .nav-links li:has(.nav-cta) { display: none; }
   .nav-links a { font-size: 11px; letter-spacing: 0.05em; }
   nav { padding: 1rem 1.25rem; }
