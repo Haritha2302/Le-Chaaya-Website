@@ -751,6 +751,66 @@ section { padding: 6rem 2rem; }
   border-color: rgba(255,255,255,0.15);
 }
 
+.form-success-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--green);
+  border-radius: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 10;
+}
+.form-success-overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+.form-success-overlay .checkmark {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  animation: successPop 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.form-success-overlay .checkmark svg {
+  width: 28px;
+  height: 28px;
+  stroke: var(--green);
+  stroke-width: 3;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.form-success-overlay h4 {
+  color: var(--cream);
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.form-success-overlay p {
+  color: rgba(255,255,255,0.8);
+  font-size: 14px;
+  max-width: 280px;
+  line-height: 1.5;
+}
+@keyframes successPop {
+  0% { transform: scale(0); opacity: 0; }
+  60% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+.contact-form { position: relative; }
+
 /* FOOTER */
 footer { background: var(--green-dark); padding: 3rem 2rem; }
 
@@ -925,6 +985,13 @@ footer { background: var(--green-dark); padding: 3rem 2rem; }
       <div>
         <div class="contact-form" id="contact">
           <h3>Get in touch</h3>
+          <div class="form-success-overlay" id="formSuccess">
+  <div class="checkmark">
+    <svg viewBox="0 0 24 24"><polyline points="5 12 10 17 19 8"/></svg>
+  </div>
+  <h4>Got it. We'll be in touch.</h4>
+  <p>We'll get back to you on WhatsApp or email soon.</p>
+</div>
           <form action="https://api.web3forms.com/submit" method="POST" onsubmit="handleSubmit(event)">
             <input type="hidden" name="access_key" value="6e1f46c7-c0a1-4ab8-8f41-7dca69fe5301">
             <input type="hidden" name="subject" value="New Le Chaaya Join Us Submission">
@@ -1151,6 +1218,7 @@ async function handleSubmit(e) {
   e.preventDefault();
   const btn = document.getElementById('submitBtn');
   const form = e.target;
+  const overlay = document.getElementById('formSuccess');
   btn.textContent = 'Sending…';
   btn.disabled = true;
   
@@ -1162,10 +1230,14 @@ async function handleSubmit(e) {
     });
     
     if (response.ok) {
-      showToast("Got it. We'll be in touch.");
+      overlay.classList.add('show');
       form.reset();
       btn.textContent = 'Send';
-      btn.disabled = false;
+      
+      setTimeout(() => {
+        overlay.classList.remove('show');
+        btn.disabled = false;
+      }, 5000);
     } else {
       throw new Error('Submission failed');
     }
