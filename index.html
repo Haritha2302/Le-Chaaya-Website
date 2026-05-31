@@ -1197,7 +1197,7 @@ function initVacancies() {
           </div>
           <p>${v.location}</p>
         ${v.notes?.length ? `<ul class="vacancy-notes">${v.notes.map(n => `<li>${n}</li>`).join('')}</ul>` : ''}
-        </div>``).join('') +
+        </div>`).join('') +
     '</div>';
   } else {
     container.innerHTML = `
