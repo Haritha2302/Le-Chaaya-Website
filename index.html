@@ -700,6 +700,14 @@ section { padding: 6rem 2rem; }
 
 .vacancy-badge { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 8px; border-radius: 2px; background: rgba(11,61,51,0.08); color: var(--green); white-space: nowrap; }
 
+.vacancy-notes {
+  margin: 6px 0 0 0;
+  padding-left: 16px;
+  font-size: 0.82rem;
+  color: #666;
+  line-height: 1.6;
+}
+  
 .no-openings-notice { background: rgba(212,175,55,0.08); border: 1px solid rgba(212,175,55,0.2); border-radius: 8px; padding: 1.25rem 1.5rem; font-size: 14px; color: var(--gold-dark); line-height: 1.7; margin-top: 1.5rem; }
 
 /* CONTACT FORM */
@@ -1188,7 +1196,8 @@ function initVacancies() {
             <span class="vacancy-badge">${v.level}</span>
           </div>
           <p>${v.location}</p>
-        </div>`).join('') +
+        ${v.notes?.length ? `<ul class="vacancy-notes">${v.notes.map(n => `<li>${n}</li>`).join('')}</ul>` : ''}
+        </div>``).join('') +
     '</div>';
   } else {
     container.innerHTML = `
