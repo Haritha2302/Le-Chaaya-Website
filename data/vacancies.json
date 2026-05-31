@@ -5,21 +5,32 @@
       "title": "Outlet Crew",
       "location": "Layam Road, Tripunithura",
       "level": "Experienced",
-      "open": false
+      "open": false,
+      "notes": [
+        "This is a full-time role.",
+        "You will need a 2-wheeler."
+      ]
     },
     {
       "id": 2,
       "title": "Outlet Crew",
       "location": "Infopark, Kochi",
       "level": "Entry level",
-      "open": false
+      "open": false,
+      "notes": [
+        "This is a full-time role.",
+        "You will need a 2-wheeler."
+      ]
     },
     {
       "id": 3,
       "title": "Outlet Crew",
-      "location": "TBC",
+      "location": "Vytilla Janatha, Maradu",
       "level": "Entry level",
-      "open": true
+      "open": true,
+      "notes": [
+        "This is a full-time role."
+      ]
     }
   ],
   "interestOptions": [
